@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Person(name, age, job){
+			this.name = name;
+			this.age = age;
+			this.job = job;
+			this.sayName = function(){
+				console.log(this.name);
+			};
+		}
+		var person1 = new Person("Mengxk", 25, "教师");
+		var person2 = new Person("Mengxq", 29, "民营企业家");
+
+		//检测对象类型
+		console.log(person1.contrustor == Person);
+		console.log(person2.contrustor == Person);
+		console.log(person1 instanceof Object);
+		console.log(person1 instanceof Person);
+		console.log(person2 instanceof Object);
+		console.log(person2 instanceof Person);
+
+		//将构造函数当作函数
+		var person = new Person("Mengxk", 25, "教师");
+		person.sayName();
+		//作为普通函数使用
+		Person("Mengxq", 29, "民营企业家");	//添加到window
+		window.sayName();
+		//在另一个对象的作用域中调用
+		var o = new Object();
+		Person.call(o, "Mengtc", 50, "公务员");
+		o.sayName();
+	</script>
+</body>
+</html>
