@@ -17,6 +17,25 @@
 		person1.sayName();
 		var person2 = new Person();
 		person2.sayName();
+
+		//检测对象与原型之间的关系
+		console.log(Person.prototype.isPrototypeOf(person1));
+		console.log(Person.prototype.isPrototypeOf(person2));
+		console.log(Object.getPrototypeOf(person1) == Person.prototype);
+		console.log(Object.getPrototypeOf(person1).name);
+
+		//检测一个属性是存在于实例中，还是存在于原型中。
+		person1.name = "mxk";
+		console.log(person1.hasOwnProperty("name"));
+		console.log(person2.hasOwnProperty("name"));
+		delete person1.name;
+		console.log(person1.hasOwnProperty("name"));
+
+		//取得对象上所有可枚举的实力属性
+		var keys = Object.keys(Person.prototype);
+		console.log(keys);
+		var p1Keys = Object.keys(person1);
+		console.log(p1Keys);
 	</script>
 </body>
 </html>
